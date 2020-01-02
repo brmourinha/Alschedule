@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* Global */
+:root {
+  --primary-color: #429999;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2.5rem;
+}
+h4,
+h5 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+a {
+  font-size: 2.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #666;
+}
+
+img {
+  width: 100%;
+}
+
+.test {
+  display: absolute;
+}
+/* Button */
+.btn {
+  background-color: rgb(15, 97, 134);
+  color: white;
+  border: solid black 0.1rem;
+  border-radius: 1rem;
+  padding: 1rem 3rem;
+  margin: 1rem 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+/* Forms */
+.form-group {
+  margin-top: 2rem;
+}
+
+label {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+input {
+  border: solid black 0.1rem;
+  padding: 1rem 5rem;
+  margin: 1rem 1rem;
+}
+
+/* Login Page */
+.login-page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url('./img/audience-band-cheering-1105666.jpg');
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page form input {
+  background-color: rgb(201, 243, 253);
+  font-size: 2rem;
+}
+
+.login-page form label {
+  color: black;
+  font-size: 2.5rem;
+}
+
+.login-page h1 {
+  margin-bottom: 2rem;
+}
+/* Navbar */
+.nav {
+  background-color: var(--primary-color);
+  min-height: 10vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.nav h1 {
+  padding: 0 5%;
+  flex: 1 1 40rem;
+  color: white;
+}
+
+.nav ul {
+  flex: 1 1 10rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Home */
+.home-container {
+  min-height: 90vh;
+  text-align: center;
+}
+
+.home-container h2 {
+  margin-top: 2rem;
+}
+
+/* About */
+.about-container {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.about-container h1 {
+  margin-top: 2rem;
+}
+
+.about-container p {
+  margin-top: 2rem;
+}
+
+/* Schedule */
+.schedule-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.event-container {
+  margin-top: 2rem;
+  text-align: center;
+  border: 0.1rem solid black;
+  border-radius: 2rem;
+  padding: 2rem 3rem;
+}
+
+/* Modal */
+.modal {
+  display: flex;
+  background-color: var(--primary-color);
+  border: solid black 0.3rem;
+  flex-direction: column;
+  position: absolute;
+  border-radius: 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-header {
+  padding: 1rem 20rem;
+}
+
+.modal-body {
+  padding: 3rem 0;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* CSS Transition Group*/
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 100ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 100ms ease-in;
+}
