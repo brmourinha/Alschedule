@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://brmourinha:alticearena@alscheduledb-8vpzr.mongodb.net/alschedule?retryWrites=true&w=majority",
-  "jwtSecret": "asdasdasdasdkj304y2123412das"
-}
