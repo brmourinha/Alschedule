@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 /* Global */
 :root {
@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
   background-color: #fff;
   color: #333;
@@ -76,6 +76,9 @@ img {
   transition: opacity 0.2s ease-in;
   outline: none;
 }
+.btn:hover {
+  background-color: rgb(11, 61, 83);
+}
 
 /* Forms */
 .form-group {
@@ -98,9 +101,9 @@ input {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: url('./img/audience-band-cheering-1105666.jpg');
-  background-position: center;
-  background-size: contain;
+  background-image: url("./img/audience-band-cheering-1105666.jpg");
+  background-position: top;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -115,16 +118,21 @@ input {
 }
 
 .login-page form input {
-  background-color: rgb(201, 243, 253);
+  background-color: rgb(187, 236, 248);
+  border-radius: 1rem;
   font-size: 2rem;
 }
 
 .login-page form label {
   color: black;
+  font-weight: bold;
   font-size: 2.5rem;
 }
 
 .login-page h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  color: rgb(4, 0, 10);
   margin-bottom: 2rem;
 }
 /* Navbar */
