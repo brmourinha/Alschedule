@@ -22,9 +22,19 @@ const ScheduleState = props => {
   const [state, dispatch] = useReducer(scheduleReducer, initialState);
 
   // Get Schedules
-  const getSchedules = async () => {
+  const getSchedules = async dateString => {
     try {
-      const schedule = await axios.get('/schedule');
+      let schedule;
+      if (!dateString) {
+        schedule = await axios.get('/schedule');
+      } else {
+        const dateValues = dateString.split('-');
+        console.log(dateValues);
+        schedule = await axios.get(
+          `/schedule?year=${dateValues[0]}&month=${dateValues[1]}`
+        );
+      }
+
       dispatch({
         type: GET_SCHEDULES,
         payload: schedule.data
@@ -46,7 +56,6 @@ const ScheduleState = props => {
     };
     try {
       const addSchedule = await axios.post('/schedule', schedule, config);
-      console.log(addSchedule);
       dispatch({
         type: ADD_SCHEDULE,
         payload: addSchedule.data

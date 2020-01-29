@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
   const { error } = loginValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  // Check if email exists
+  // Check if user exists
   const user = await User.findOne({ name: req.body.name }).select('+password');
   if (!user) return res.status(400).send('User does not exist!!');
 

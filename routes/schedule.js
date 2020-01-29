@@ -7,7 +7,8 @@ const verify = require('../controllers/verifyToken');
 // Get all Schedules
 router.get('/', verify, async (req, res) => {
   try {
-    const schedule = await Schedule.find({ user: req.user });
+    req.query.user = req.user;
+    const schedule = await Schedule.find(req.query);
     res.json(schedule);
   } catch (err) {
     res.json({ message: err });

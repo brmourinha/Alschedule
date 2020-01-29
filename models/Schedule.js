@@ -16,6 +16,12 @@ const ScheduleSchema = mongoose.Schema({
   workHours: {
     type: String
   },
+  year: {
+    type: Number
+  },
+  month: {
+    type: Number
+  },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
@@ -30,6 +36,9 @@ const ScheduleSchema = mongoose.Schema({
 // Call getAverageCost after save
 ScheduleSchema.pre('save', function() {
   this.workHours = this.outDate.getTime() - this.inDate.getTime();
+
+  this.year = this.outDate.getUTCFullYear();
+  this.month = this.outDate.getUTCMonth() + 1;
 });
 
 module.exports = mongoose.model('Schedule', ScheduleSchema);

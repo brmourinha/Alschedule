@@ -13,6 +13,10 @@ const UserSchema = mongoose.Schema({
   bar: {
     type: String,
     required: true
+  },
+  wageHour: {
+    type: Number,
+    default: 5.5
   }
 });
 

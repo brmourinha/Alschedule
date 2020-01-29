@@ -13,16 +13,35 @@ const Home = () => {
 
   const { getSchedules, schedule, total, loading } = scheduleContext;
 
+  const date = new Date();
+  const dateIn = `${date.getUTCFullYear()}-${(
+    '0' +
+    date.getUTCMonth() +
+    1
+  ).slice(-2)}`;
+
   useEffect(() => {
     authContext.loadUser();
-    getSchedules();
+    getSchedules(dateIn);
     // eslint-disable-next-line
   }, []);
 
   const [show, setShow] = useState(false);
-
   const changeShow = e => {
     setShow(!show);
+  };
+
+  const [dateSchedule, setDateSchedule] = useState(dateIn);
+
+  const onChange = e => {
+    setDateSchedule(e.target.value);
+  };
+
+  const submitDate = e => {
+    if (dateSchedule !== '') {
+      getSchedules(dateSchedule);
+    }
+    e.preventDefault();
   };
 
   if (schedule !== null && schedule.length === 0) {
@@ -44,6 +63,16 @@ const Home = () => {
     <Fragment>
       {schedule !== null && loading !== true ? (
         <div className='home-container'>
+          <form>
+            <input type='month' value={dateSchedule} onChange={onChange} />
+            <button
+              type='button'
+              className='btn btn-primary'
+              onClick={submitDate}
+            >
+              Check
+            </button>
+          </form>
           <div className='schedule-container'>
             {schedule.map(event => (
               <Event key={event._id} event={event}></Event>
