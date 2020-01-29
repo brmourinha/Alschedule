@@ -13,8 +13,8 @@ const Login = props => {
     // eslint-disable-next-line
   }, [isAuthenticated, props.history]);
   const [user, setUser] = useState({
-    name: '',
-    password: ''
+    name: 'John Doe',
+    password: 'password'
   });
 
   const { name, password } = user;
