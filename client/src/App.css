@@ -98,13 +98,21 @@ input {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: url('./img/audience-band-cheering-1105666.jpg');
-  background-position: center;
-  background-size: contain;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+}
+.login-page .img {
+  position: absolute;
+  opacity: 0.8;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-image: url('./img/audience-band-cheering-1105666.jpg');
+  background-position: center;
+  background-size: contain;
 }
 
 .login-page form {
@@ -233,6 +241,17 @@ input {
 .modal-footer {
   display: flex;
   justify-content: space-evenly;
+}
+
+/* Alert */
+.alert {
+  font-size: 1.5rem;
+  padding: 1rem 5rem;
+}
+
+.alert-danger {
+  background-color: red;
+  color: white;
 }
 
 /* CSS Transition Group*/

@@ -1,17 +1,25 @@
 import React, { useState, useContext, useEffect } from 'react';
+import Alerts from '../layouts/Alerts';
 import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../context/alert/alertContext';
 
 const Login = props => {
   const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
 
-  const { login, isAuthenticated } = authContext;
+  const { login, isAuthenticated, error } = authContext;
+  const { setAlert } = alertContext;
 
   useEffect(() => {
     if (isAuthenticated) {
       props.history.push('/');
     }
+
+    if (error === 'User does not exist!!' || error === 'Wrong Password') {
+      setAlert('Invalid Credentials', 'danger');
+    }
     // eslint-disable-next-line
-  }, [isAuthenticated, props.history]);
+  }, [isAuthenticated, props.history, error]);
   const [user, setUser] = useState({
     name: 'John Doe',
     password: 'password'
@@ -32,7 +40,9 @@ const Login = props => {
 
   return (
     <div className='login-page'>
+      <div className='img'></div>
       <h1>Alschedule</h1>
+      <Alerts />
       <form onSubmit={onSubmit}>
         <label htmlFor='name'>Name</label>
         <input
@@ -40,6 +50,7 @@ const Login = props => {
           name='name'
           value={name}
           onChange={onChange}
+          minLength='6'
           required
         />
         <label htmlFor='password'>Password</label>
@@ -48,6 +59,7 @@ const Login = props => {
           name='password'
           value={password}
           onChange={onChange}
+          minLength='6'
           required
         />
         <button type='submit' value='Login' className='btn'>
