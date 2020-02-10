@@ -16,8 +16,7 @@ const Home = () => {
   const date = new Date();
   const dateIn = `${date.getUTCFullYear()}-${(
     '0' +
-    date.getUTCMonth() +
-    1
+    (date.getUTCMonth() + 1)
   ).slice(-2)}`;
 
   useEffect(() => {
@@ -48,6 +47,16 @@ const Home = () => {
     return (
       <Fragment>
         <div className='home-container'>
+          <form>
+            <input type='month' value={dateSchedule} onChange={onChange} />
+            <button
+              type='button'
+              className='btn btn-primary'
+              onClick={submitDate}
+            >
+              Check
+            </button>
+          </form>
           <h2>Schedule Empty</h2>
           <button className='btn' type='button' onClick={changeShow}>
             Add Schedule
